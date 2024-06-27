@@ -1,0 +1,39 @@
+.campCardCarouseal{
+    width: 100% ;
+    height: 100% ;
+}
+
+/* react-multi-carousel classname */
+.react-multi-carousel-track{
+    height: 100%;
+}
+
+/* react-multi-carousel classname */
+.react-multi-carousel-item{
+    margin-right:25px ;
+    width: 6% ;
+}
+
+.campCards{
+    width: 100%;
+    height: 100%;
+}
+
+.campCardImages{
+    padding: 4px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.campCardHeading{
+    /* font-size: 20px !important; */
+    font-weight: 600 !important;
+    font-family: sans-serif !important;
+    color: #3e3d3d !important;
+}
+
+.campCardBody{
+    /* font-size: 16px !important; */
+    font-family: monospace !important;
+    color: #494949 !important;
+}

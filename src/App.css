@@ -1,0 +1,385 @@
+/* app.jsx */
+.mainContainer{
+    background-image: url('./assets/workers.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* header.jsx */
+.navLogo{
+    width: 65px;
+}
+
+.headerContainer{
+    border-bottom: 1px solid #6595b3;
+}
+
+.bookingHeader{
+    background: linear-gradient(187deg, rgba(75, 169, 216, 1) 10%, rgba(0, 123, 198, 1) 34%);
+}
+
+/* home.jsx */
+.bg1{
+    background-image: url('./assets/home1.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg2{
+    background-image: url('./assets/home2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg3{
+    background-image: url('./assets/home3.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg4{
+    background-image: url('./assets/home4.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-caption{
+    width: 86%;
+    height: 100%;
+    right: 0% !important;
+    bottom: 0 !important;
+    left: 7% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.insideCarouselCaption{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 24%;
+}
+
+.homeLogo{
+    animation: spin 8s linear infinite;
+}
+
+.homeHeading{
+    padding-top: 6px;
+    font-family: "Merienda", cursive;
+    font-weight: 800;
+    font-size: 59px;
+    color: #ff8300;
+}
+
+.homePara{
+    padding: 25px 5px 0px 58px;
+    font-size: 21px;
+    text-align: left;
+}
+
+.bttnHome{
+    width: 19%;
+    margin-left: 61px;
+    margin-top: 27px;
+    padding: 10px !important;
+}
+
+.servicesHeading{
+    font-size: 40px;
+    font-family: "Merienda", cursive;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 35px;
+    color: #134612;
+}
+
+.cardImage{
+    height: 59%;
+    width: 83% !important;
+    position: absolute;
+    top: -44px;
+    box-shadow: -6px 7px 10px 2px;
+    border-radius: 10px;
+}
+
+
+/* Testimonial.jsx */
+.testimonialCard{
+    width: 17rem;
+    background-color: #D9F8CE !important;
+    height: 300px !important;
+    border-radius: 6px;
+}
+
+/* contact.jsx */
+.contactContainer{
+    background: linear-gradient(187deg, rgb(75 169 216) 10%, rgb(0 123 198 / 70%) 34%);
+}
+
+.contactTextDiv{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.contactHeading{
+    padding-top: 6px;
+    font-family: "Merienda", cursive;
+    font-weight: 800;
+    font-size: 59px;
+    color: #134612d2;
+    margin-bottom: 0;
+}
+
+.contactSubHeading{
+    font-family: "Poppins", sans-serif;
+    font-size: 43px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: -5px;
+}
+
+.contactBox{
+    background-color: #ffffffc2;
+    padding-right: 15px;
+    padding-bottom: 14px;
+    border-radius: 7px;
+    box-shadow: inset 0px 0px 18px 5px #828282a3;
+}
+
+/* Authentication.jsx */
+.detailsBox{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding-top: 21px;
+}
+
+/* Booking.jsx */
+.bookingMainDiv{
+    background-color: #f0e6fd;
+    /* background-image: url("./assets/ResidentialScrap.avif"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 20px;
+}
+
+.bookingInnerDiv{
+    width: 100%;
+    min-height: 100vh;
+    /* background-color: #b6b6b64a; */
+    /* backdrop-filter: blur(13px); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookingSteps{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.bookingNextBttn:hover{
+    background-color: #389716 !important;
+}
+
+.css-z7uhs0-MuiStepConnector-line {
+    /* border-color: #bdbdbd; */
+    border-top-style: dotted !important;
+    border-top-width: 1.9px !important;
+}
+
+.stepsConfirmation{
+    justify-content: center;
+    height: 57vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmTick{
+    width: 46px;
+    margin-left: 8px;
+    margin-top: -6px;
+}
+
+.confirmOkBttn:hover{
+    background-color: rgb(63, 63, 226) !important;
+}
+
+
+/* bookingSteps.jsx */
+
+/* .bookingStep1Div{
+    background-image: url("./assets/ResidentialScrap.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bookingStep1InnerDiv{
+    width: 100%;
+    height: 100vh;
+    background-color: #6b6a6a63;
+    backdrop-filter: blur(13px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.bookingStepsGrid{
+    width: 90% !important;
+    height: 100%;
+    /* background-color: #373a3c69; */
+    background-color: #8585852e;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    margin-top: 10px !important;
+    
+}
+
+.bookingStepsGrid::-webkit-scrollbar{
+    width: 4px;
+    border-radius: 5px;
+}
+
+.bookingStepsGrid::-webkit-scrollbar-track{
+    background-color: #d7e9fa;
+    display: none;
+}
+
+.bookingStepsGrid::-webkit-scrollbar-thumb{
+    background-color: #7ca4dc;
+    border-radius: 5px;
+}
+ 
+.bookingStepsImage{
+    border-radius: 20px;
+    border: 2px solid black;
+    width: 87% !important;
+    height: 435px !important;
+}
+
+.categoryContainer{
+    background-color: #b9d6ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* width: 65%;
+    height: 100%; */
+    height: 127.5px;                        
+    width: 114.5px;
+    border-radius: 8px;
+    padding: 12px;
+    position: relative;
+    cursor: cell;
+}
+
+.categoryContainer:hover{
+    transform: scale(1.08);
+}
+
+.categoryCheck{
+    position: absolute;
+    top: 7px;
+    right: 8px;
+}
+
+.categoryImage{
+    width: 42%;
+    /* margin-top: 15px; */
+}
+
+.categoryName{
+    width: 100%;
+    margin-top: 7px;
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #121212;
+}
+
+.subCategories{
+    margin-bottom: 2px;
+    font-size: 11px;
+    color: #6f6f6f;
+    font-family: sans-serif;
+    line-height: 16px;
+}
+
+.categoryHeading{
+    width: 100%;
+    margin-top: 17px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #121212;
+    margin-left: 27px;
+}
+
+.bookingStep3TextBox{
+    width: 92%;
+    margin-top: 40px !important;
+}
+
+.orderContainer{
+    background: linear-gradient(18deg, rgba(75, 169, 216, 1) 14%, rgba(36, 145, 207, 1) 39%, rgba(0, 123, 198, 1) 84%, rgba(30, 54, 71, 1) 100%);
+    padding: 105px 35px 0px 35px;
+}
+
+.orderDetailsBox{
+    background-color: white;
+    min-height: 145px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 17px;
+}
+
+.orderDetailsHeading{
+    font-size: 17px;
+    color: #212121;
+    font-weight: 600;
+    font-family: system-ui;
+    margin-bottom: 2px;
+}
+
+.orderStatusIcon{
+    height: 15px;
+    width: 15px;
+    display: block;
+    border-radius: 20px;
+}
+
+/* dashboard.jsx */
+.dashboardContainer{
+    background: linear-gradient(18deg, rgba(75, 169, 216, 1) 14%, rgba(36, 145, 207, 1) 39%, rgba(0, 123, 198, 1) 84%, rgba(30, 54, 71, 1) 100%);
+    padding: 47px 80px 80px 80px;
+
+}
+
+/* footer.jsx */
+.footerContainer{
+    background: linear-gradient(187deg, rgba(75, 169, 216, 1) 10%, rgba(0, 123, 198, 1) 34%);
+    border-top: 1px solid #c7e0f0;
+}
+
+/* home.jsx */
+@keyframes spin{
+    100%{transform: rotate(360deg);}
+}
+
