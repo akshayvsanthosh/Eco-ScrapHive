@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid';
-import addImage from '../assets/addImage.png'
 import TaskAltIcon from '@mui/icons-material/TaskAlt'
 
 import plasticIcon from '../assets/plasticIcon.png'
@@ -48,7 +47,7 @@ import wireIcon from '../assets/wireIcon.png'
 import fishingNetIcon from '../assets/fishingNetIcon.png'
 import tyreIcon from '../assets/tyreIcon.png'
 
-function BookingStep2({ steps }) {
+function BookingStep2({ steps,setDisableStep2Next }) {
     const [isPaperItemsClicked, setIsPaperItemsClicked] = useState({
         cartonBox: false, magazine: false, mixedPaper: false, newsPaper: false, noteBook: false, textBook: false
     });
@@ -70,6 +69,18 @@ function BookingStep2({ steps }) {
     const [isOtherItemsClicked, setIsOtherItemsClicked] = useState({
         chair: false, rope: false, wire: false, fishingNet: false, tyre: false
     });
+
+    useEffect(()=>{
+        handleNext()
+    },[isPaperItemsClicked,isPlasticItemsClicked,isMetalItemsClicked,isMotorItemsClicked,isEWasteItemsClicked,isVehicleItemsClicked,isOtherItemsClicked])
+
+    const handleNext = () =>{
+        if (Object.values(isPaperItemsClicked)?.some(values=>values) && Object.values(isPlasticItemsClicked)?.some(values=>values) && Object.values(isMetalItemsClicked)?.some(values=>values) && Object.values(isMotorItemsClicked)?.some(values=>values) && Object.values(isEWasteItemsClicked)?.some(values=>values) && Object.values(isVehicleItemsClicked)?.some(values=>values) && Object.values(isOtherItemsClicked)?.some(values=>values)) {
+            setDisableStep2Next(false)
+        }else{
+            setDisableStep2Next(true)
+        }
+    }
 
     return (
         <>

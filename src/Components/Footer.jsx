@@ -7,14 +7,15 @@ function Footer() {
   return (
     <div className='p-5 pt-4 w-100 footerContainer'>
       <Grid container spacing={2}>
-        <Grid xs={12} lg={5}>
+        <Grid xs={12} lg={4}>
           <div  className="intro">
-            <h5><Link className='fw-bolder ' to={'/'} style={{ color: "#fff", textDecoration: "none" }}><img width={"30px"} src={logo} alt="Logo" /> Eco-ScrapHive </Link></h5>
+            <h5><Link className='fw-bolder flex' to={'/'} style={{ color: "#fff", textDecoration: "none" }}><img width={"30px"} src={logo} alt="Logo" /> Eco-ScrapHive </Link></h5>
             <p className='text-white '>Designed and built with all the love in the world by the Eco-ScrapHive team with the help of our contributors.</p>
             <p className='text-white '>Code licensed MIT, docs CC BY 3.0.</p>
             <p className='text-white '> Currently V1.0.0.</p>
           </div>
         </Grid>
+        <Grid lg={1}></Grid>
         <Grid xs={12} sm={4} lg={2}>
           <div className="links d-flex flex-column ">
             <h5 className='text-white '>Links</h5>

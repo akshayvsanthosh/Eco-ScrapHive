@@ -52,7 +52,7 @@ function Dashboard() {
                                             </Link>
                                         </h5>
                                         <h5 className='fw-bolder' style={{padding:"23px 0px 0px 27px"}}>
-                                            <Link to={'/orders'} className='text-decoration-none text-gray-700'>
+                                            <Link to={'/user/orders'} className='text-decoration-none text-gray-700'>
                                                 <OutboxIcon sx={{marginTop:"-6px", marginRight:"20px"}}/>
                                                 Bookings
                                             </Link>

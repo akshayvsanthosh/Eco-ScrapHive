@@ -10,7 +10,7 @@ function Header({ insideBooking, insideHome }) {
     return (
         <>
             {/* <Headroom> */}
-            <Navbar expand="lg" className={`w-100 headerContainer ${insideBooking && 'bookingHeader'}`} style={{  borderBottom: `${insideHome && '0px'}` }}>
+            <Navbar expand="lg" className={`w-100 headerContainer ${insideHome ?'homeHeader' : 'bookingHeader'}`} style={{  borderBottom: `${insideHome && '0px'}`, }}>
                 <Container className='ms-3'>
                     <Navbar.Brand >
                         <Link to={'/'} className='text-decoration-none '><img className='navLogo' src={logo} alt="LOGO" /></Link>
@@ -22,9 +22,14 @@ function Header({ insideBooking, insideHome }) {
                                 <Link className='text-decoration-none text-white' to={'/'}>Home</Link>
                             </Nav.Link>
                             <Nav.Link className='me-4 text-white fw-semibold'>
-                                <Link className='text-decoration-none text-white' to={'/booking'}>Book Now</Link>
+                                <Link className='text-decoration-none text-white' to={'/user/booking'}>Book Now</Link>
                             </Nav.Link>
-                            <Nav.Link className='me-0 text-white fw-semibold'>About</Nav.Link>
+                            <Nav.Link className='me-4 text-white fw-semibold'>
+                                <Link className='text-decoration-none text-white' to={'/user/orders'}>Orders</Link>
+                            </Nav.Link>
+                            <Nav.Link className='me-4 text-white fw-semibold'>
+                                <Link className='text-decoration-none text-white' to={'/user/dashboard'}>Dasboard</Link>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

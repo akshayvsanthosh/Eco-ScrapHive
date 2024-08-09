@@ -11,21 +11,32 @@ import eWasteIcon from '../assets/eWasteIcon.png'
 import vehicleIcon from '../assets/vehicleIcon.png'
 import otherIcon from '../assets/otherIcon.png'
 
-function BookingStep1({ steps }) {
+function BookingStep1({ steps,setDisableStep1Next }) {
     const [preview, setPreview] = useState(addImage)
     const [productImage, setProductImage] = useState("")
+    
     const [isClicked, setIsClicked] = useState({
         paper: false, plastic: false, metals: false, motor: false, eWaste: false, vehicle: false, others: false
     });
 
     useEffect(() => {
-        if (productImage.type == "image/png" || productImage.type == "image/jpg" || productImage.type == "image/jpeg") {
+        if (productImage?.type == "image/png" || productImage?.type == "image/jpg" || productImage?.type == "image/jpeg") {
             setPreview(URL.createObjectURL(productImage))
+            handleNext()
         } else {
             setProductImage("")
             setPreview(addImage)
+            handleNext()
         }
-    }, [productImage])
+    }, [productImage,isClicked])
+
+    const handleNext = () =>{
+        if (productImage && Object.values(isClicked).some(values=>values)) {
+            setDisableStep1Next(false)
+        }else{
+            setDisableStep1Next(true)
+        }
+    }
 
     return (
         <>

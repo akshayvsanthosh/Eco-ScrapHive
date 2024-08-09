@@ -25,8 +25,8 @@ function Home() {
     return (
         <div>
             {/* navbar */}
-            <Headroom className='position-absolute top-0 z-3 w-100'><Header insideHome={insideHome}/></Headroom>
-            
+            <Headroom className='position-absolute top-0 z-3 w-100'><Header insideHome={insideHome} /></Headroom>
+
             {/* carousel */}
             <Carousel fade pause="false" className='w-100 ' style={{ height: "100vh" }}>
                 <Carousel.Item interval={1000} >
@@ -41,7 +41,7 @@ function Home() {
                                     </div>
                                     <p className='homePara'>Eco-ScrapHive: Pioneering a Greener Future, One Scrap at a Time. Join us in our mission to declutter the planet and pave the way for a cleaner, healthier tomorrow. Together, we can transform waste into worth and make sustainability a reality.
                                     </p>
-                                    <Link to={'/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
+                                    <Link to={'/user/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
                                 </div>
                             </Grid>
                             <Grid xs={0} md={5}>
@@ -62,7 +62,7 @@ function Home() {
                                     </div>
                                     <p className='homePara'>Eco-ScrapHive: Pioneering a Greener Future, One Scrap at a Time. Join us in our mission to declutter the planet and pave the way for a cleaner, healthier tomorrow. Together, we can transform waste into worth and make sustainability a reality.
                                     </p>
-                                    <Link to={'/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
+                                    <Link to={'/user/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
                                 </div>
                             </Grid>
                             <Grid xs={0} md={5}>
@@ -83,7 +83,7 @@ function Home() {
                                     </div>
                                     <p className='homePara'>Eco-ScrapHive: Pioneering a Greener Future, One Scrap at a Time. Join us in our mission to declutter the planet and pave the way for a cleaner, healthier tomorrow. Together, we can transform waste into worth and make sustainability a reality.
                                     </p>
-                                    <Link to={'/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
+                                    <Link to={'/user/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
                                 </div>
                             </Grid>
                             <Grid xs={0} md={5}>
@@ -104,7 +104,7 @@ function Home() {
                                     </div>
                                     <p className='homePara'>Eco-ScrapHive: Pioneering a Greener Future, One Scrap at a Time. Join us in our mission to declutter the planet and pave the way for a cleaner, healthier tomorrow. Together, we can transform waste into worth and make sustainability a reality.
                                     </p>
-                                    <Link to={'/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
+                                    <Link to={'/user/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
                                 </div>
                             </Grid>
                             <Grid xs={0} md={5}>
@@ -198,14 +198,16 @@ function Home() {
             <CampaignsHome />
 
             {/*Testimonials  */}
-            <Testimonials/>
+            <Testimonials />
 
             {/* Contact */}
-            <Contact/>
+            <Contact />
 
             {/* Footer */}
-            <Footer/>
+            <Footer />
         </div>
+
+
     )
 }
 
