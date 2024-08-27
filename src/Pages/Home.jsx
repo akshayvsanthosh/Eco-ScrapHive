@@ -129,7 +129,7 @@ function Home() {
                                         <Card.Text className='pt-2' style={{ textAlign: "justify" }}>
                                             Eco-ScrapHive Residential Scrap Removal is your premier choice for hassle-free scrap removal.
                                         </Card.Text>
-                                        <Button variant="primary" style={{ borderRadius: "7px" }}>Book Now</Button>
+                                        <Link className='btn btn-primary' to={'/user/booking'} style={{ borderRadius: "7px" }}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -143,7 +143,7 @@ function Home() {
                                         <Card.Text className='pt-2' style={{ textAlign: "justify" }}>
                                             Is the accumulation of old junk and scraps hindering your workspace efficiency?
                                         </Card.Text>
-                                        <Button variant="primary" style={{ borderRadius: "7px" }}>Book Now</Button>
+                                        <Link className='btn btn-primary' to={'/user/booking'} style={{ borderRadius: "7px" }}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -157,7 +157,7 @@ function Home() {
                                         <Card.Text className='pt-2' style={{ textAlign: "justify" }}>
                                             Looking where to dump urinal bags, diapers, sanitary napkins, expired medicines, or laboratory waste?
                                         </Card.Text>
-                                        <Button variant="primary" style={{ borderRadius: "7px" }}>Book Now</Button>
+                                        <Link className='btn btn-primary' to={'/user/booking'} style={{ borderRadius: "7px" }}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -171,7 +171,7 @@ function Home() {
                                         <Card.Text className='pt-2' style={{ textAlign: "justify" }}>
                                             Eco-ScrapHives BWG offers a convenient solution for those classified as "Bulk Waste Generators"
                                         </Card.Text>
-                                        <Button variant="primary" style={{ borderRadius: "7px" }}>Book Now</Button>
+                                        <Link className='btn btn-primary' to={'/user/booking'} style={{ borderRadius: "7px" }}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -185,7 +185,7 @@ function Home() {
                                         <Card.Text className='pt-2' style={{ textAlign: "justify" }}>
                                             Marketplace by Eco-ScrapHive is an online platform where buyers and sellers in the scrap industry can connect and trade.
                                         </Card.Text>
-                                        <Button variant="primary" style={{ borderRadius: "7px" }}>Book Now</Button>
+                                        <Link className='btn btn-primary' to={'/user/booking'} style={{ borderRadius: "7px" }}>Book Now</Link>
                                     </Card.Body>
                                 </Card>
                             </div>

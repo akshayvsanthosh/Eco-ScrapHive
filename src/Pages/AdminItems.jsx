@@ -92,15 +92,13 @@ function AdminItems() {
   const handleSubmit = async () => {
     const { itemImage, itemCategory, itemName, itemPrice } = itemDetails
     if (itemImage && itemCategory && itemName && itemPrice) {
-
       const reqbody = new FormData()
       reqbody.append("itemImage", itemImage)
       reqbody.append("itemCategory", itemCategory)
       reqbody.append("itemName", itemName)
       reqbody.append("itemPrice", itemPrice)
-      console.log(reqbody);
       const token = sessionStorage.getItem("token")
-      console.log(token);
+      // console.log(token);
       if (token) {
         const reqHeader = {
           "Content-Type": "multipart/form-data",
@@ -113,9 +111,11 @@ function AdminItems() {
             setitemAddResponse(result)
             console.log(result);
           } else {
+            // console.log(result.response.data);
             toast.warning(result.response.data)
           }
         } catch (error) {
+          toast.warning(error.response.data)
           console.log(error);
         }
       } else {
@@ -144,6 +144,7 @@ function AdminItems() {
         }
       } catch (error) {
         console.log(error);
+        toast.warning(error.response.data)
       }
     }
   };
@@ -180,7 +181,7 @@ function AdminItems() {
                 <Grid key={category?._id} item xs={12} >
                   <div>
                     <h6 className='categoryHeading text-white w-auto'>{category?.categoryName}</h6>
-                    <Grid container spacing={1}>
+                    <Grid container spacing={1} rowSpacing={4}>
                       {allItems?.length > 0 ?
                         allItems.map(items => (
                           items?.itemCategory == category?.categoryName &&
@@ -197,7 +198,7 @@ function AdminItems() {
                                 }}
                                 sx={{ display: editMenuDisplay ? "none" : "block" }}
                               >
-                                <EditAdminItem setAnchorEl={setAnchorEl} setEditMenuDisplay={setEditMenuDisplay} category={category} itemId={itemId} allItems={allItems}/>
+                                <EditAdminItem setAnchorEl={setAnchorEl} setEditMenuDisplay={setEditMenuDisplay} category={category} itemId={itemId} allItems={allItems} />
                                 <MenuItem onClick={() => handleDelete(itemId)}>Delete</MenuItem>
                               </Menu>
 
@@ -226,6 +227,7 @@ function AdminItems() {
           backdrop="static"
           keyboard={false}
         >
+          <ToastContainer position='top-center' theme='colored' autoClose={1000} />
           <Modal.Header closeButton>
             <Modal.Title>Add Item</Modal.Title>
           </Modal.Header>
@@ -240,7 +242,7 @@ function AdminItems() {
             }
             <TextField onChange={e => setItemDetails({ ...itemDetails, itemCategory: e.target.value })} id="standard-basic" label="Item Category" variant="standard" />
             <TextField onChange={e => setItemDetails({ ...itemDetails, itemName: e.target.value })} id="standard-basic" label="Item Name" variant="standard" />
-            <TextField onChange={e => setItemDetails({ ...itemDetails, itemPrice: e.target.value })} id="standard-basic" label="Items price" variant="standard" />
+            <TextField onChange={e => setItemDetails({ ...itemDetails, itemPrice: e.target.value })} id="standard-basic" label="Items price(per Kg/Pcs)" variant="standard" />
 
           </Modal.Body>
           <Modal.Footer>
@@ -251,7 +253,6 @@ function AdminItems() {
           </Modal.Footer>
         </Modal>
 
-        <ToastContainer position='top-center' theme='colored' autoClose={1000} />
       </div>
     </div>
   )

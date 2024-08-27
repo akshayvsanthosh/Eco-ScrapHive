@@ -22,7 +22,9 @@
 }
 
 .bookingHeader {
-    background: linear-gradient(187deg, #00d5ff 10%, #00d4ff 34%);
+    /* background: linear-gradient(185deg, #00d5ff 10%, #020069 61%); */
+    background-color: #020069;
+
 }
 
 /* home.jsx */
@@ -342,6 +344,7 @@
     margin-top: 40px !important;
 }
 
+/* order */
 .orderContainer {
     background: linear-gradient(18deg, rgba(75, 169, 216, 1) 14%, rgba(36, 145, 207, 1) 39%, rgba(0, 123, 198, 1) 84%, rgba(30, 54, 71, 1) 100%);
     padding: 105px 35px 0px 35px;
@@ -379,7 +382,8 @@
 
 /* footer.jsx */
 .footerContainer {
-    background: linear-gradient(187deg, #16adcb 10%, #00d4ff 34%);
+    /* background: linear-gradient(185deg, #00d5ff 10%, #020069 35%); */
+    background-color: #020069;
     border-top: 1px solid #c7e0f0;
 }
 

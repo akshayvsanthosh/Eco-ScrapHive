@@ -50,3 +50,48 @@ export const editItemAPI = async(itmid,reqBody,reqHeader)=>{
 export const deleteItemAPI = async(itmid,reqHeader)=>{
     return await commonAPI("DELETE",`${SERVER_URL}/admin/item/${itmid}/delete`,{},reqHeader)
 }
+
+// get orders
+export const getAllOrdersAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${SERVER_URL}/user/all-orders`,{},reqHeader)
+}
+
+// add orders
+export const addOrderAPI = async (reqBody,reqHeader) => {
+    return await commonAPI("POST",`${SERVER_URL}/user/order`,reqBody,reqHeader)
+}
+
+// get all orders - admin
+export const getAllAdminOrdersAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${SERVER_URL}/admin/all-orders`,{},reqHeader)
+}
+
+// update orderStatus - admin
+export const updateOrderStatusAPI = async(oId,reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${SERVER_URL}/admin/orderStatus/${oId}/update`,reqBody,reqHeader)
+}
+
+// update orderStatus - admin
+export const updateOrderPriceAPI = async(oId,reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${SERVER_URL}/admin/orderPrice/${oId}/update`,reqBody,reqHeader)
+}
+
+// delete orderStatus - both
+export const deleteOrderAPI = async(oId,reqHeader)=>{
+    return await commonAPI("DELETE",`${SERVER_URL}/order/${oId}/delete`,{},reqHeader)
+}
+
+// get user details
+export const getUserDetailsAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${SERVER_URL}/user/details`,{},reqHeader)
+}
+
+// update user details
+export const updateUserDetailsAPI = async (reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${SERVER_URL}/user/update`,reqBody,reqHeader)
+}
+
+// delete account
+export const deleteAccount = async (reqHeader)=>{
+    return await commonAPI("DELETE",`${SERVER_URL}/user/delete`,{},reqHeader)
+}

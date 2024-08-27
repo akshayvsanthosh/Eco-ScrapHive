@@ -8,7 +8,6 @@ import Authentication from './Pages/Authentication';
 import Booking from './Pages/Booking';
 import Orders from './Pages/Orders';
 import Dashboard from './Pages/Dashboard';
-import AdminDashboard from './Pages/AdminDashboard';
 import AdminCategory from './Pages/AdminCategory';
 import AdminItems from './Pages/AdminItems';
 import AdminOrders from './Pages/AdminOrders';
@@ -24,7 +23,6 @@ function App() {
         <Route path='/user/booking' element={<WithRole component={Booking} allowedRoles={['user']} />} />
         <Route path='/user/orders' element={<WithRole component={Orders} allowedRoles={['user']} />} />
         <Route path='/user/dashboard' element={<WithRole component={Dashboard} allowedRoles={['user']} />} />
-        <Route path='/admin/dashboard' element={<WithRole component={AdminDashboard} allowedRoles={['admin']} />} />
         <Route path='/admin/order' element={<WithRole component={AdminOrders} allowedRoles={['admin']} />} />
         <Route path='/admin/category' element={<WithRole component={AdminCategory} allowedRoles={['admin']} />} />
         <Route path='/admin/item' element={<WithRole component={AdminItems} allowedRoles={['admin']} />} />

@@ -5,21 +5,23 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useSelector } from 'react-redux';
 
-
-function BookingStep3({ steps,setDisableStep3Finish }) {
+function BookingStep3({ steps,setDisableStep3Finish,orderDetails,setOrderDetails }) {
     // for validation of inputs
     const [invalidOrderDetails, setInvalidOrderDetails] = useState({
         userName: false, phone: false, pincode: false, state: false, date: false, buildingName: false, city: false, areaName: false, landMark: false
     })
+    const selectedItem = useSelector(state=>state.selectItemReducer)
 
-    // for details of order
-    const [orderDetails, setOrderDetails] = useState({
-        userName: "", phone: "", pincode: "", state: "", date: "", buildingName: "", city: "", areaName: "", landMark: "", addressType: ""
-    })
+
+    useEffect(()=>{
+        const user=JSON.parse(sessionStorage.getItem("user"))
+        // console.log(user);
+        setOrderDetails({
+            userName: user.userName, phone: user.phone, pincode: user.pincode, state: user.state, date: "", buildingName: user.buildingName, city: user.city, areaName: user.areaName, landMark: user.landMark, addressType: ""
+        })
+    },[])
 
     useEffect(()=>{
         handleFinish()
@@ -69,10 +71,9 @@ function BookingStep3({ steps,setDisableStep3Finish }) {
                 break;
         }
     }
-
+    
     const handledate=(tag)=>{
-        console.log("inside date");
-        console.log(tag.value);
+        // console.log(tag.value);
         const today = new Date()
         const startDate = new Date(today)
         startDate.setDate(startDate.getDate()+1)
@@ -86,7 +87,6 @@ function BookingStep3({ steps,setDisableStep3Finish }) {
 
     const handleFinish = () =>{
         const hasInvalidProperty = Object.values(invalidOrderDetails).some(values => values)
-        console.log(Object.values(invalidOrderDetails).some(values => values));
         if (orderDetails.userName && orderDetails.phone && orderDetails.pincode && orderDetails.state && orderDetails.date && orderDetails.buildingName && orderDetails.city && orderDetails.areaName && !hasInvalidProperty) {
             setDisableStep3Finish(false)
         }else{
@@ -94,7 +94,9 @@ function BookingStep3({ steps,setDisableStep3Finish }) {
         }
     }
 
-
+    // console.log(selectedItem);
+    // console.log(orderDetails);
+    
     return (
         <>
             {/* step 3 */}
@@ -102,17 +104,17 @@ function BookingStep3({ steps,setDisableStep3Finish }) {
                 <Grid item xs={6}>
                     <div className='h-100 flex flex-col items-start' style={{ padding: "46px 70px", paddingLeft: "108px" }}>
 
-                        <TextField {...(invalidOrderDetails.userName && { error: true, helperText: "Invalid name" })} onChange={e => handleInput(e.target)} name='userName' className='bookingStep3TextBox' id="outlined-basic" label="Full Name*" variant="outlined" />
-                        <TextField {...(invalidOrderDetails.phone && { error: true, helperText: "Invalid number" })} onChange={e => handleInput(e.target)} name='phone' className='bookingStep3TextBox' id="outlined-basic" label="Phone number*" variant="outlined" />
+                        <TextField value={orderDetails.userName} {...(invalidOrderDetails.userName && { error: true, helperText: "Invalid name" })} onChange={e => handleInput(e.target)} name='userName' className='bookingStep3TextBox' id="outlined-basic" label="Full Name*" variant="outlined" />
+                        <TextField value={orderDetails.phone} {...(invalidOrderDetails.phone && { error: true, helperText: "Invalid number" })} onChange={e => handleInput(e.target)} name='phone' className='bookingStep3TextBox' id="outlined-basic" label="Phone number*" variant="outlined" />
 
                         <div className='flex bookingStep3TextBox justify-between'>
-                            <TextField {...(invalidOrderDetails.pincode && { error: true, helperText: "Invalid pincode" })} onChange={e => handleInput(e.target)} name='pincode' sx={{ width: "46%" }} id="outlined-basic" label="Pincode*" variant="outlined" />
-                            <TextField {...(invalidOrderDetails.state && { error: true, helperText: "Invalid state" })} onChange={e => handleInput(e.target)} name='state' sx={{ width: "46%" }} id="outlined-basic" label="State*" variant="outlined" />
+                            <TextField value={orderDetails.pincode} {...(invalidOrderDetails.pincode && { error: true, helperText: "Invalid pincode" })} onChange={e => handleInput(e.target)} name='pincode' sx={{ width: "46%" }} id="outlined-basic" label="Pincode*" variant="outlined" />
+                            <TextField value={orderDetails.state} {...(invalidOrderDetails.state && { error: true, helperText: "Invalid state" })} onChange={e => handleInput(e.target)} name='state' sx={{ width: "46%" }} id="outlined-basic" label="State*" variant="outlined" />
                         </div>
 
                         <div className='flex bookingStep3TextBox justify-between'>
-                            <TextField {...(invalidOrderDetails.city && { error: true, helperText: "Invalid city" })} onChange={e => handleInput(e.target)} name='city'  sx={{ width: "46%" }} id="outlined-basic" label="City*" variant="outlined" />
-                            <TextField {...(invalidOrderDetails.date && { error: true, helperText: "Date not available" })} onChange={e => handleInput(e.target)} name='pickupDate' focused sx={{ width: "46%" }} id="outlined-basic" label="Pickup Date" variant="outlined" type='date'/>
+                            <TextField value={orderDetails.city} {...(invalidOrderDetails.city && { error: true, helperText: "Invalid city" })} onChange={e => handleInput(e.target)} name='city'  sx={{ width: "46%" }} id="outlined-basic" label="City*" variant="outlined" />
+                            <TextField value={orderDetails.date} {...(invalidOrderDetails.date && { error: true, helperText: "Date not available" })} onChange={e => handleInput(e.target)} name='pickupDate' focused sx={{ width: "46%" }} id="outlined-basic" label="Pickup Date" variant="outlined" type='date'/>
                         </div>
 
                     </div>
@@ -120,9 +122,9 @@ function BookingStep3({ steps,setDisableStep3Finish }) {
                 <Grid item xs={6}>
                     <div className='h-100 flex flex-col items-start' style={{ padding: "46px 70px", paddingLeft: "108px" }}>
 
-                        <TextField {...(invalidOrderDetails.buildingName && { error: true, helperText: "Invalid buildingName" })} onChange={e => handleInput(e.target)} name='buildingName' className='bookingStep3TextBox' id="outlined-basic" label="House No., Bulding Name*" variant="outlined" />
-                        <TextField {...(invalidOrderDetails.areaName && { error: true, helperText: "Invalid Road/Area/ColonyName" })} onChange={e => handleInput(e.target)} name='areaName' className='bookingStep3TextBox' id="outlined-basic" label="Road name, Area, Colony*" variant="outlined" />
-                        <TextField {...(invalidOrderDetails.landMark && { error: true, helperText: "Invalid landMark" })} onChange={e => handleInput(e.target)} name='landMark' className='bookingStep3TextBox' id="outlined-basic" label="Nearby Famous Shop/Mall/Landmark" variant="outlined" />
+                        <TextField value={orderDetails.buildingName} {...(invalidOrderDetails.buildingName && { error: true, helperText: "Invalid buildingName" })} onChange={e => handleInput(e.target)} name='buildingName' className='bookingStep3TextBox' id="outlined-basic" label="House No., Bulding Name*" variant="outlined" />
+                        <TextField value={orderDetails.areaName} {...(invalidOrderDetails.areaName && { error: true, helperText: "Invalid Road/Area/ColonyName" })} onChange={e => handleInput(e.target)} name='areaName' className='bookingStep3TextBox' id="outlined-basic" label="Road name, Area, Colony*" variant="outlined" />
+                        <TextField value={orderDetails.landMark} {...(invalidOrderDetails.landMark && { error: true, helperText: "Invalid landMark" })} onChange={e => handleInput(e.target)} name='landMark' className='bookingStep3TextBox' id="outlined-basic" label="Nearby Famous Shop/Mall/Landmark" variant="outlined" />
                         <FormLabel className='bookingStep3TextBox' id="demo-row-radio-buttons-group-label">Type of address</FormLabel>
                         <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group"
                         >

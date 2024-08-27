@@ -13,7 +13,7 @@ const WithRole = ({ component: Component, allowedRoles, ...rest }) => {
                 toast.warning('Access Denied', { toastId: 'accessDenied' });
                 setTimeout(() => {
                     if (user.role === "admin") {
-                        setRedirectPath("/admin/dashboard");
+                        setRedirectPath("/admin/order");
                     } else {
                         setRedirectPath("/");
                     }

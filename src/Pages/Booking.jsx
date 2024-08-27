@@ -15,9 +15,13 @@ import BookingStep2 from '../Components/BookingStep2';
 import BookingStep3 from '../Components/BookingStep3';
 import orderConfirmed from '../assets/orderConfirmed.png'
 import { useNavigate } from 'react-router-dom';
-
 import Skeleton from '@mui/material/Skeleton';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addOrderAPI } from '../services/allAPI';
+import { clearSelectedItem } from '../Redux/slices/selectItemSlice';
+import { clearSelectedCategories } from '../Redux/slices/selectCategorySlice';
 
 const steps = ['Upload and Select categories', 'Select types', 'Preview'];
 
@@ -28,17 +32,83 @@ export default function HorizontalLinearStepper() {
     const [disableStep3Finish, setDisableStep3Finish] = useState(true)
     const [activeStep, setActiveStep] = React.useState(0);
     const [insideBooking, setInsideBooking] = useState(true)
+    const [productImage, setProductImage] = useState("")
+    // for details of order
+    const [orderDetails, setOrderDetails] = useState({
+        userName: "", phone: "", pincode: "", state: "", date: "", buildingName: "", city: "", areaName: "", landMark: "", addressType: ""
+    })
+    const { allItems, loadingItem, errorItem } = useSelector(state => state.itemReducer)
+    const selectedItem = useSelector(state => state.selectItemReducer)
+
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 1000);
     }, [])
-console.log(disableStep1Next);
+    // console.log(disableStep1Next);    
+
+    const addOrder = async (itemssel) => {
+        const { userName, phone, pincode, state, date, buildingName, city, areaName, landMark, addressType } = orderDetails
+        // console.log(productImage);
+        // console.log(orderDetails);
+        // console.log(itemssel);
+       if (userName && phone && pincode && state && date && buildingName && city && areaName && landMark && productImage && itemssel) {
+        const reqbody = new FormData()
+        reqbody.append("image", productImage)
+        reqbody.append("itemNames", itemssel)
+        reqbody.append("address[userName]", userName)
+        reqbody.append("address[phone]", phone)
+        reqbody.append("address[pincode]", pincode)
+        reqbody.append("address[state]", state)
+        reqbody.append("address[date]", date)
+        reqbody.append("address[buildingName]", buildingName)
+        reqbody.append("address[city]", city)
+        reqbody.append("address[areaName]", areaName)
+        reqbody.append("address[landMark]", landMark)
+        reqbody.append("address[addressType]", addressType)
+        const token = sessionStorage.getItem("token")
+        if (token) {
+            const reqHeader = {
+                "Content-Type": "multipart/form-data",
+                "Authorization": `Bearer ${token}`
+            }
+            try {
+                const result = await addOrderAPI(reqbody, reqHeader)
+                if (result.status == 200) {
+                    // console.log(result);
+                    setOrderDetails({
+                        userName: "", phone: "", pincode: "", state: "", date: "", buildingName: "", city: "", areaName: "", landMark: "", addressType: ""
+                    })
+                    setProductImage("")
+                    dispatch(clearSelectedCategories())
+                    dispatch(clearSelectedItem())
+                    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+                } else {
+                    toast.warning(result.response.data)
+                }
+            } catch (error) {               
+                toast.warning(error.response.data)
+                console.log(error);
+            }
+        } else {
+            toast.warning("token missing")
+        }
+       } else {
+            toast.warning("Please fill the form completely!")
+       }
+    }
 
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        if (activeStep == 2) {
+            let orderItems = allItems.filter(items => selectedItem.includes(items._id))
+            addOrder(orderItems.map(item => item.itemName));
+        } 
+        else {
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        }
     };
 
     const handleBack = () => {
@@ -46,9 +116,17 @@ console.log(disableStep1Next);
     };
 
     const handleReset = () => {
-        navigate('/orders')
+        navigate('/user/orders')
         setActiveStep(0);
     };
+
+    // console.log(address);
+    // console.log(itemNames);
+    // console.log(image);
+    // let itemssel=[]
+    // itemssel.push(itemNames.map(item=>item.itemName))
+    // console.log(itemssel);
+
 
     return (
         <>
@@ -89,9 +167,9 @@ console.log(disableStep1Next);
                                     {/* components in each  */}
                                     <Box className="bookingSteps position-relative">
                                         {/* content of each steps */}
-                                        <BookingStep1 steps={activeStep} setDisableStep1Next={setDisableStep1Next} />
+                                        <BookingStep1 steps={activeStep} setDisableStep1Next={setDisableStep1Next} productImage={productImage} setProductImage={setProductImage} />
                                         <BookingStep2 steps={activeStep} setDisableStep2Next={setDisableStep2Next} />
-                                        <BookingStep3 steps={activeStep} setDisableStep3Finish={setDisableStep3Finish} />
+                                        <BookingStep3 steps={activeStep} setDisableStep3Finish={setDisableStep3Finish} orderDetails={orderDetails} setOrderDetails={setOrderDetails} />
                                     </Box>
 
                                     <Box sx={{ display: 'flex', flexDirection: 'row', width: "84%", position: "relative", bottom: "35px" }}>

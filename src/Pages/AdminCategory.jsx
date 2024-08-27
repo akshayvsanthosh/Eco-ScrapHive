@@ -84,7 +84,6 @@ function AdminCategory() {
   const handleSubmit = async () => {
     const { categoryImage, categoryName, categoryItems } = categoryDetails
     if (categoryImage && categoryName && categoryItems) {
-
       const reqbody = new FormData()
       reqbody.append("categoryImage", categoryImage)
       reqbody.append("categoryName", categoryName)
@@ -97,7 +96,6 @@ function AdminCategory() {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${token}`
         }
-
         try {
           const result = await addCategoryAPI(reqbody, reqHeader)
           if (result.status == 200) {
@@ -109,9 +107,10 @@ function AdminCategory() {
           }
         } catch (error) {
           console.log(error);
+          toast.warning(error.response.data)
         }
       } else {
-        toast.warning("token missin")
+        toast.warning("token missing")
       }
     } else {
       toast.error("Please fill the form completely!")
@@ -136,6 +135,7 @@ function AdminCategory() {
         }
       } catch (error) {
         console.log(error);
+        toast.warning(error.response.data)
       }
     }
   };
@@ -166,7 +166,7 @@ function AdminCategory() {
                       </linearGradient>
                     </defs>
                   </svg>
-                  <CircularProgress className='me-2' sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} /> <h5 className='text-white'>Logging in</h5>
+                  <CircularProgress className='me-2' sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} /> <h5 className='text-white'>Loading</h5>
                 </div>
                 :
                 <Grid container spacing={3} rowSpacing={7}>
@@ -254,24 +254,3 @@ function AdminCategory() {
 }
 
 export default AdminCategory
-
-
-{/* 
-<h6 className='categoryName'>PLASTIC</h6>
-<p className='subCategories'>Fiber, Hard Plastic, PVC</p>                  
-               
-<h6 className='categoryName'>METALS</h6>
-<p className='subCategories'>Alum channel, Aluminium</p>
-                 
-<h6 className='categoryName'>MOTOR</h6>
-<p className='subCategories'>Engine, Fan, Motor, Pump</p>
-               
-<h6 className='categoryName'>E WASTE</h6>
-<p className='subCategories'>Cooler big, Cooler small</p>
-                 
-<h6 className='categoryName'>VEHICLE</h6>
-<p className='subCategories'>Four wheeler, Two wheeler</p>
-                  
-<h6 className='categoryName'>OTHERS</h6>
-<p className='subCategories'>AC aluminium, AC copper</p>
-*/}

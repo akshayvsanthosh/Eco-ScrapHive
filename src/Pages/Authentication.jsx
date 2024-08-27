@@ -104,11 +104,13 @@ function Authentication({ insideRegister }) {
         if (userDetails.email && userDetails.password && !hasInvalidProperty) {
             try {
                 const result = await loginAPI(userDetails)
+                // console.log(result);
+                
                 if (result.status == 200) {
                     setIsLoggedIn(true)
                     const role = result?.data?.user?.role
-                    console.log(result?.data?.user);
-                    console.log(role);
+                    // console.log(result?.data?.user);
+                    // console.log(role);
                     sessionStorage.setItem("user", JSON.stringify(result?.data?.user))
                     sessionStorage.setItem("token", result.data.token)
                     setUserDetails({
@@ -119,7 +121,7 @@ function Authentication({ insideRegister }) {
                         if (role == "user") {
                             navigate("/")
                         } else {
-                            navigate("/admin/dashboard")
+                            navigate("/admin/order")
                         }
                     }, 600);
                 } else {
@@ -211,7 +213,7 @@ function Authentication({ insideRegister }) {
                                                 <div className="mt-3">
                                                     <button onClick={handleRegiter} className='btn btn-primary mb-2' style={{ borderRadius: "8px", fontSize: "19px" }}>Register</button>
                                                     <p className='mt-2 mb-0'>Already have an Account? Click here to <Link to={'/login'}>Login</Link></p>
-                                                    <hr className='my-2' />
+                                                    {/* <hr className='my-2' /> */}
                                                 </div>
                                                 :
                                                 <div className="mt-3">
@@ -221,12 +223,12 @@ function Authentication({ insideRegister }) {
                                                     } */}
                                                     </button>
                                                     <p className='mt-2 mb-0'>New User? Click here to <Link to={'/register'}>Register</Link></p>
-                                                    <hr className='my-2' />
+                                                    {/* <hr className='my-2' /> */}
                                                 </div>
                                         }
                                     </div>
                                 </Grid>
-                                <Grid item xs={12} className='pb-5'>
+                                {/* <Grid item xs={12} className='pb-5'>
                                     <button
                                         type="button"
                                         className="w-11/12 flex border-1 border-gray-100 items-center justify-center gap-2 text-lg font-medium py-3 rounded-xl active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out"
@@ -234,13 +236,12 @@ function Authentication({ insideRegister }) {
                                         <i className="fa-brands fa-google"></i>
                                         {insideRegister ? "Sign Up with Google" : "Sign In with Google"}
                                     </button>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </div>
                     </Grid>
                 </Grid>
             }
-            <ToastContainer position='top-center' theme='colored' autoClose={3000} />
         </div>
     )
 }

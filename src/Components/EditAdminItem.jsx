@@ -85,15 +85,16 @@ function EditAdminItem({ setAnchorEl, setEditMenuDisplay, category, itemId, allI
             handleCloseModal()
             dispatch(fetchItems())
           } else {
-            alert(result.response.data)
-            console.log(result.response);
+            toast.warning(result.response.data)
+            // console.log(result.response);
           }
         } catch (error) {
-          console.log(error);
+          // console.log(error);
+          toast.warning(error.response.data)
         }
       }
     } else {
-      alert("Please fill the form completely..")
+      toast.warning("Please fill the form completely..")
     }
   }
 
@@ -110,6 +111,8 @@ function EditAdminItem({ setAnchorEl, setEditMenuDisplay, category, itemId, allI
         backdrop="static"
         keyboard={false}
       >
+        <ToastContainer position='top-center' theme='colored' autoClose={1000} />
+
         <Modal.Header closeButton>
           <Modal.Title>Edit Category</Modal.Title>
         </Modal.Header>
@@ -133,7 +136,6 @@ function EditAdminItem({ setAnchorEl, setEditMenuDisplay, category, itemId, allI
           <Button onClick={handleSubmit} className='rounded-md' variant="primary">Submit</Button>
         </Modal.Footer>
       </Modal>
-      <ToastContainer position='top-center' theme='colored' autoClose={1000} />
     </div>
   )
 }
