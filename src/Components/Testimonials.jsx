@@ -6,9 +6,9 @@ function Testimonials() {
     return (
         <div className='d-flex align-items-center flex-column' style={{ minHeight: "100vh", width: "100%", paddingBottom: "90px", backdropFilter: "blur(8px)" }}>
             <h1 className='servicesHeading mt-4' style={{ color: "#ff911d" }}>Our Testimonials</h1>
-            <Grid container spacing={2} className='mt-5 pt-4 w-100'>
-                <Grid xs={4}>
-                    <div className='d-flex justify-content-center'>
+            <Grid container rowSpacing={4} spacing={3} className='mt-5 pt-4 w-100'>
+                <Grid xs={12} md={4}>
+                    <div className='d-flex justify-content-center mt-3'>
                         <Card className='testimonialCard'>
                             <Card.Body>
                                 <Card.Title className='mt-4 d-flex align-items-center justify-content-center flex-column'>
@@ -30,8 +30,8 @@ function Testimonials() {
                         </Card>
                     </div>
                 </Grid>
-                <Grid xs={4}>
-                    <div className='d-flex justify-content-center'>
+                <Grid xs={12} md={4}>
+                    <div className='d-flex justify-content-center mt-3'>
                         <Card className='testimonialCard'>
                             <Card.Body>
                                 <Card.Title className='mt-4 d-flex align-items-center justify-content-center flex-column'>
@@ -54,8 +54,8 @@ function Testimonials() {
                         </Card>
                     </div>
                 </Grid>
-                <Grid xs={4}>
-                    <div className='d-flex justify-content-center'>
+                <Grid xs={12} md={4}>
+                    <div className='d-flex justify-content-center mt-3'>
                         <Card className='testimonialCard'>
                             <Card.Body>
                                 <Card.Title className='mt-4 d-flex align-items-center justify-content-center flex-column'>

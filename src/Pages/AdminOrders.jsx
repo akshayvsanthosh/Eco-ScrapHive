@@ -30,6 +30,7 @@ function AdminOrders() {
   const [selectedOrder, setSelectedOrder] = useState({
     image: "", itemNames: "", orderStatus: "", price: "", date: "", userName: "", phone: "", pincode: "", state: "", buildingName: "", city: "", areaName: "", landMark: "", addressType: ""
   })
+  const [sideBar, setSideBar] = useState(false)
   const open = Boolean(anchorEl);
   const dispatch = useDispatch()
   const [show, setShow] = useState(false);
@@ -241,17 +242,19 @@ function AdminOrders() {
     handleShow()
   }
 
+  const handleSideBar = () => {
+    setSideBar(!sideBar)
+  }
+
   // console.log(allOrders);
   // console.log(amount);
   // console.log(selectedOrder);
 
-
-
   return (
     <div className='flex justify-end' style={{ width: "100%", minHeight: "100vh" }}>
-      <SideNav />
-      <div style={{ minHeight: "200vh", width: "85%", backgroundColor: "#010036", backdropFilter: "blur(5px)" }}>
-
+      <SideNav sideBar={sideBar} setSideBar={setSideBar}/>
+      <div style={{ minHeight: "100vh", width: "100%", backgroundColor: "#010036", backdropFilter: "blur(5px)" }}>
+        <i onClick={handleSideBar} class="fa-solid fa-bars text-white text-end fa-xl mt-4" style={{ marginLeft: "93%" }}></i>
         <div className='d-flex flex-column align-items-center adminOders' style={{ minHeight: "100vh", width: "100%" }}>
           <Grid container spacing={2}>
             {allOrders?.length > 0 ?
@@ -262,19 +265,19 @@ function AdminOrders() {
                     {/* division of container to 3 */}
                     <Grid container spacing={0} sx={{ minHeight: "109px" }}>
                       {/* 1st col */}
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                         <div className='h-100'>
                           {/* division of 1st col into 2 col */}
                           <Grid container spacing={0} className='h-100'>
                             {/* 1st col in 1st */}
-                            <Grid item xs={3}>
+                            <Grid item xs={12} md={3}>
                               <div className='h-100'>
                                 <img style={{ borderRadius: "7px" }} src={`${SERVER_URL}/uploads/${order?.image}`} alt="Image" />
                               </div>
                             </Grid>
                             {/* 2nd col in 1st */}
-                            <Grid item xs={8}>
-                              <div className='h-100 ps-5'>
+                            <Grid item xs={12} md={8}>
+                              <div className='h-100 ps-md-5'>
                                 <p className='orderDetailsHeading'>{order?.itemNames.slice(0, 18)}..</p>
                                 <p>{order?.address.date.split('T')[0]}</p>
                               </div>
@@ -283,14 +286,14 @@ function AdminOrders() {
                         </div>
                       </Grid>
                       {/* 2nd col */}
-                      <Grid item xs={2} className='flex justify-end'>
+                      <Grid item xs={12} md={2} className='flex justify-md-end'>
                         <div className='h-100 d-flex flex-col'>
                           <TextField onChange={e => handleAmount(e, order?._id)} error={invalidAmount[order?._id] || false} helperText={invalidAmount[order?._id] ? "Invalid amount" : ""} value={amount[order?._id]} disabled={order?.orderStatus === 10 || order?.orderStatus === 30} id="standard-start-adornment" sx={{ m: 1, width: '80px' }} InputProps={{ startAdornment: <InputAdornment position="start">₹</InputAdornment>, }} variant="standard" />
                           {submitOrderId === order?._id && (<button onClick={() => handleSubmit(order?._id)} className='btn-link'>Submit</button>)}
                         </div>
                       </Grid>
                       {/* 3rd col */}
-                      <Grid item xs={3} className='flex justify-end'>
+                      <Grid item xs={8} md={3} className='flex justify-md-end'>
                         <div className='h-100 flex justify-center pt-1'>
 
                           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -310,7 +313,7 @@ function AdminOrders() {
                         </div>
                       </Grid>
                       {/* 4th col */}
-                      <Grid item xs={1}>
+                      <Grid item xs={4} md={1}>
                         <div className='h-100'>
                           <div className='flex justify-end'>
                             <IconButton

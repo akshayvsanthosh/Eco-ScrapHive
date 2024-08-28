@@ -62,7 +62,7 @@ function BookingStep2({ steps, setDisableStep2Next }) {
                                         {allItems?.length > 0 ?
                                             allItems.map(items => (
                                                 items?.itemCategory == category?.categoryName &&
-                                                <Grid key={items?._id} item xs={2} className='flex justify-center'>
+                                                <Grid key={items?._id} item xs={6} sm={4} md={2} className='flex justify-center'>
                                                     <div className='categoryContainer'
                                                         onClick={() => handleIsItemClicked(items?._id)}>
                                                         {selectedItem.includes(items?._id) &&

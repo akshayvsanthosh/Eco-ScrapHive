@@ -101,25 +101,25 @@ function BookingStep3({ steps,setDisableStep3Finish,orderDetails,setOrderDetails
         <>
             {/* step 3 */}
             <Grid className='bookingStepsGrid' container sx={{ display: steps === 2 ? "" : "none" }}>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     <div className='h-100 flex flex-col items-start' style={{ padding: "46px 70px", paddingLeft: "108px" }}>
 
                         <TextField value={orderDetails.userName} {...(invalidOrderDetails.userName && { error: true, helperText: "Invalid name" })} onChange={e => handleInput(e.target)} name='userName' className='bookingStep3TextBox' id="outlined-basic" label="Full Name*" variant="outlined" />
                         <TextField value={orderDetails.phone} {...(invalidOrderDetails.phone && { error: true, helperText: "Invalid number" })} onChange={e => handleInput(e.target)} name='phone' className='bookingStep3TextBox' id="outlined-basic" label="Phone number*" variant="outlined" />
 
-                        <div className='flex bookingStep3TextBox justify-between'>
-                            <TextField value={orderDetails.pincode} {...(invalidOrderDetails.pincode && { error: true, helperText: "Invalid pincode" })} onChange={e => handleInput(e.target)} name='pincode' sx={{ width: "46%" }} id="outlined-basic" label="Pincode*" variant="outlined" />
-                            <TextField value={orderDetails.state} {...(invalidOrderDetails.state && { error: true, helperText: "Invalid state" })} onChange={e => handleInput(e.target)} name='state' sx={{ width: "46%" }} id="outlined-basic" label="State*" variant="outlined" />
+                        <div className='d-sm-flex bookingStep3TextBox justify-between'>
+                            <TextField value={orderDetails.pincode} {...(invalidOrderDetails.pincode && { error: true, helperText: "Invalid pincode" })} onChange={e => handleInput(e.target)} name='pincode' sx={{ width:{xs:"100%", sm:"46%"} }} id="outlined-basic" label="Pincode*" variant="outlined" />
+                            <TextField value={orderDetails.state} {...(invalidOrderDetails.state && { error: true, helperText: "Invalid state" })} onChange={e => handleInput(e.target)} name='state' sx={{ width:{xs:"100%", sm:"46%"}, marginTop:{xs:"35px", sm:"0px"} }} id="outlined-basic" label="State*" variant="outlined" />
                         </div>
 
-                        <div className='flex bookingStep3TextBox justify-between'>
-                            <TextField value={orderDetails.city} {...(invalidOrderDetails.city && { error: true, helperText: "Invalid city" })} onChange={e => handleInput(e.target)} name='city'  sx={{ width: "46%" }} id="outlined-basic" label="City*" variant="outlined" />
-                            <TextField value={orderDetails.date} {...(invalidOrderDetails.date && { error: true, helperText: "Date not available" })} onChange={e => handleInput(e.target)} name='pickupDate' focused sx={{ width: "46%" }} id="outlined-basic" label="Pickup Date" variant="outlined" type='date'/>
+                        <div className='d-sm-flex bookingStep3TextBox justify-between'>
+                            <TextField value={orderDetails.city} {...(invalidOrderDetails.city && { error: true, helperText: "Invalid city" })} onChange={e => handleInput(e.target)} name='city'  sx={{ width:{xs:"100%", sm:"46%"} }} id="outlined-basic" label="City*" variant="outlined" />
+                            <TextField value={orderDetails.date} {...(invalidOrderDetails.date && { error: true, helperText: "Date not available" })} onChange={e => handleInput(e.target)} name='pickupDate' focused sx={{ width:{xs:"100%", sm:"46%"}, marginTop:{xs:"35px", sm:"0px"} }}  id="outlined-basic" label="Pickup Date" variant="outlined" type='date'/>
                         </div>
 
                     </div>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     <div className='h-100 flex flex-col items-start' style={{ padding: "46px 70px", paddingLeft: "108px" }}>
 
                         <TextField value={orderDetails.buildingName} {...(invalidOrderDetails.buildingName && { error: true, helperText: "Invalid buildingName" })} onChange={e => handleInput(e.target)} name='buildingName' className='bookingStep3TextBox' id="outlined-basic" label="House No., Bulding Name*" variant="outlined" />

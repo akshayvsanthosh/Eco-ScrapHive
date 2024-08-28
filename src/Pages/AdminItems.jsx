@@ -31,7 +31,7 @@ function AdminItems() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [itemId, setItemId] = useState("")
   const [editMenuDisplay, setEditMenuDisplay] = useState(false)
-
+  const [sideBar,setSideBar] = useState(false)
 
   const handleShow = () => setShow(true);
   const open = Boolean(anchorEl);
@@ -149,13 +149,17 @@ function AdminItems() {
     }
   };
 
+  const handleSideBar = () => {
+    setSideBar(!sideBar)
+  }
+
   // console.log(allItems);
 
 
   return (
     <div className='flex justify-end' style={{ width: "100%", minHeight: "100vh" }}>
-      <SideNav />
-      <div style={{ minHeight: "100vh", width: "85%", backgroundColor: "#010036", paddingTop: "30px", paddingBottom: "25px" }}>
+      <SideNav sideBar={sideBar} setSideBar={setSideBar}/>
+      <div style={{ minHeight: "100vh", width: "100%", backgroundColor: "#010036", paddingTop: "30px", paddingBottom: "25px" }}>
 
         {loading ?
           <div className='d-flex justify-content-center align-items-center w-100' style={{ height: "50vh" }}>
@@ -172,8 +176,9 @@ function AdminItems() {
           :
           <Grid rowSpacing={3} container>
             {/* button row */}
-            <Grid item xs={12} >
+            <Grid item xs={12} className='flex items-start justify-between pe-5'>
               <button onClick={handleShow} className='btn btn-primary rounded ms-5'>Add Item</button>
+              <i onClick={handleSideBar} class="fa-solid fa-bars text-white text-end fa-xl" ></i>
             </Grid>
             {/* 1st row */}
             {allCategory?.length > 0 ?
@@ -185,7 +190,7 @@ function AdminItems() {
                       {allItems?.length > 0 ?
                         allItems.map(items => (
                           items?.itemCategory == category?.categoryName &&
-                          <Grid key={items?._id} item xs={2} className='flex justify-center'>
+                          <Grid key={items?._id} item xs={6} sm={4} md={3} lg={2} className='flex justify-center'>
                             <div className='categoryContainer' style={{ height: "144.5px", width: "130.5px" }}>
                               <MoreVertIcon className='categoryCheck' aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={(e) => handleClick(e, items?._id)} />
                               <Menu

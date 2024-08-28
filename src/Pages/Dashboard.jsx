@@ -143,7 +143,7 @@ function Dashboard() {
         const { userName, phone, email, password, pincode, state, buildingName, city, areaName, landMark, userImage } = userDetails
         console.log(preview,existingImg);
         
-        // console.log(userName, phone, email, password, pincode, state, buildingName, city, areaName, landMark, userImage);
+        console.log(userName, phone, email, password, pincode, state, buildingName, city, areaName, landMark, userImage);
         if (phone && pincode && state && buildingName && city && areaName && landMark && password) {
             const reqbody = new FormData()
             reqbody.append("userName", userName)
@@ -232,7 +232,7 @@ function Dashboard() {
             <div className='dashboardContainer' style={{ minHeight: "100vh", width: "100%" }}>
                 <Grid container spacing={1.5} sx={{ minHeight: "85vh" }}>
                     {/* left panel */}
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <div className='h-100'>
                             {/* divided left panel into 2 panel */}
                             <Grid container rowSpacing={1.5} height={"100vh"}>
@@ -240,17 +240,17 @@ function Dashboard() {
                                 <Grid item xs={12} sx={{ height: "20%" }}>
                                     <div className='h-100 bg-slate-200' style={{ borderRadius: "3px" }}>
                                         <Grid container spacing={0} className='h-100'>
-                                            <Grid item xs={4}>
+                                            <Grid item xs={4} md={4}>
                                                 <div>
                                                     {existingImg ?
-                                                        <img className='rounded-circle' style={{ padding: "15px" }} src={preview ? preview : `${SERVER_URL}/uploads/${existingImg}`} alt="" />
+                                                        <img className='rounded-circle dashboardImage' style={{ padding: "15px" }} src={preview ? preview : `${SERVER_URL}/uploads/${existingImg}`} alt="Image" />
                                                         :
-                                                        <img className='rounded-circle' style={{ padding: "15px" }} src={preview ? preview : avatar} alt="" />
+                                                        <img className='rounded-circle dashboardImage' style={{ padding: "15px" }} src={preview ? preview : avatar} alt="Image" />
                                                     }
                                                     {/* <img className='rounded-circle' style={{ padding: "15px" }} src={avatar} alt="" /> */}
                                                 </div>
                                             </Grid>
-                                            <Grid item xs={8}>
+                                            <Grid item xs={8} md={8}>
                                                 <div>
                                                     <p className='mb-0 mt-4'>Hello,</p>
                                                     <h5 className='fw-bolder'>{userDetails?.userName?.slice(0,17)}</h5>
@@ -261,7 +261,7 @@ function Dashboard() {
                                 </Grid>
                                 {/* bottom panel */}
                                 <Grid item xs={12} sx={{ height: "82%", }}>
-                                    <div className='h-100 bg-slate-200' style={{ borderRadius: "3px", paddingTop: "20px" }}>
+                                    <div className=' bg-slate-200' style={{ borderRadius: "3px", paddingTop: "20px", paddingBottom:"30px" }}>
                                         <h5 className='fw-bolder' style={{ padding: "23px 0px 0px 27px" }}>
                                             <Link to={'/'} className='text-decoration-none text-gray-700'>
                                                 <HomeIcon sx={{ marginTop: "-6px", marginRight: "20px" }} />
@@ -292,25 +292,25 @@ function Dashboard() {
                         </div>
                     </Grid>
                     {/* right panel */}
-                    <Grid item xs={9}>
+                    <Grid item xs={12} md={9}>
                         <div className='h-100 bg-slate-200' style={{ borderRadius: "3px", padding: "22px 18px 10px 45px" }}>
                             <h5 className='fw-bolder'>
                                 Personal Information
                                 <Link onClick={handleShow} className='text-decoration-none ms-5 fw-medium text-base'>Edit</Link>
                             </h5>
-                            <TextField value={userDetails.userName} InputProps={{ readOnly: true, }} sx={{ width: "35%", marginTop: "18px" }} id="outlined-userNameView" label="Name" variant="outlined" focused />
+                            <TextField value={userDetails.userName} InputProps={{ readOnly: true, }} sx={{ width:{sm:"100%" ,md:"35%"}, marginTop: "18px" }} id="outlined-userNameView" label="Name" variant="outlined" focused />
 
                             <h5 className='fw-bolder' style={{ marginTop: "55px" }}>
                                 Email Address
                                 <Link onClick={handleShow} className='text-decoration-none ms-5 fw-medium text-base'>Edit</Link>
                             </h5>
-                            <TextField InputProps={{ readOnly: true, }} value={userDetails.email} sx={{ width: "35%", marginTop: "18px" }} id="outlined-emailView" label="Email" variant="outlined" focused />
+                            <TextField InputProps={{ readOnly: true, }} value={userDetails.email} sx={{ width:{sm:"100%" ,md:"35%"}, marginTop: "18px" }} id="outlined-emailView" label="Email" variant="outlined" focused />
 
                             <h5 className='fw-bolder' style={{ marginTop: "55px" }}>
                                 Mobile Number
                                 <Link onClick={handleShow} className='text-decoration-none ms-5 fw-medium text-base'>Edit</Link>
                             </h5>
-                            <TextField value={userDetails.phone} InputProps={{ readOnly: true, }} sx={{ width: "35%", marginTop: "18px" }} id="outlined-phoneView" label="Mobile" variant="outlined" focused />
+                            <TextField value={userDetails.phone} InputProps={{ readOnly: true, }} sx={{ width:{sm:"100%" ,md:"35%"}, marginTop: "18px" }} id="outlined-phoneView" label="Mobile" variant="outlined" focused />
 
                             <h6 className='fw-bolder' style={{ marginTop: "55px" }}>
                                 FAQs

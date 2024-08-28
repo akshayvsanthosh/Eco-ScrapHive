@@ -30,6 +30,7 @@ function AdminCategory() {
   const [catId, setCatId] = useState("")
 
   const [editMenuDisplay, setEditMenuDisplay] = useState(false)
+  const [sideBar, setSideBar] = useState(false)
 
   const dispatch = useDispatch()
   const { allCategory, loading, error } = useSelector(state => state.categoryReducer)
@@ -140,17 +141,19 @@ function AdminCategory() {
     }
   };
 
-
+  const handleSideBar = () => {
+    setSideBar(!sideBar)
+  }
 
   return (
     <div className='flex justify-end' style={{ width: "100%", minHeight: "100vh" }}>
-      <SideNav />
-      <div style={{ minHeight: "100vh", width: "85%", backgroundColor: "#010036", paddingTop: "30px" }}>
-
+      <SideNav sideBar={sideBar} setSideBar={setSideBar}/>
+      <div style={{ minHeight: "100vh", width: "100%", backgroundColor: "#010036", paddingTop: "30px" }}>
         <Grid container columnSpacing={2} rowSpacing={5} sx={{ marginLeft: "0px", maxWidth: "100%" }}>
 
-          <Grid item xs={12} >
+          <Grid item xs={12} className='flex items-start justify-between pe-5'>
             <button onClick={handleShow} className='btn btn-primary rounded ms-5'>Add Category</button>
+            <i onClick={handleSideBar} class="fa-solid fa-bars text-white text-end fa-xl" ></i>
           </Grid>
 
           {/* first row */}
@@ -172,7 +175,7 @@ function AdminCategory() {
                 <Grid container spacing={3} rowSpacing={7}>
                   {allCategory?.length > 0 ?
                     allCategory.map(category => (
-                      <Grid key={category?._id} item xs={3} className='flex justify-center'>
+                      <Grid key={category?._id} item xs={6} sm={4} md={3} className='flex justify-center'>
                         <div className='categoryContainer' style={{ width: "160.5px", height: "184.5px" }}>
                           <MoreVertIcon className='categoryCheck' aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={(e) => handleClick(e, category?._id)} />
                           <Menu

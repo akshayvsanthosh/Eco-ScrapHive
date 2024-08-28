@@ -32,8 +32,8 @@ function Home() {
                 <Carousel.Item interval={1000} >
                     <div className="bg1" style={{ height: "100vh" }} text="First slide" />
                     <Carousel.Caption>
-                        <Grid container spacing={2} style={{ height: "100%" }}>
-                            <Grid xs={12} md={7}>
+                        <Grid container spacing={0} style={{ height: "100%" }}>
+                            <Grid xs={12} md={10} lg={7}>
                                 <div className='insideCarouselCaption'>
                                     <div className='d-flex' style={{ paddingLeft: "35px" }}>
                                         <img className='homeLogo' width={"90px"} src={logo} alt="Logo" />
@@ -44,7 +44,7 @@ function Home() {
                                     <Link to={'/user/booking'} className='btn btn-warning rounded-4 bttnHome'>Book Now</Link>
                                 </div>
                             </Grid>
-                            <Grid xs={0} md={5}>
+                            <Grid xs={0} md={0}>
 
                             </Grid>
                         </Grid>
@@ -53,8 +53,8 @@ function Home() {
                 <Carousel.Item interval={1000}>
                     <div className="bg2" style={{ height: "100vh" }} text="Second slide" />
                     <Carousel.Caption>
-                        <Grid container spacing={2} style={{ height: "100%" }}>
-                            <Grid xs={12} md={7}>
+                        <Grid container spacing={0} style={{ height: "100%" }}>
+                            <Grid xs={12} md={10} lg={7}>
                                 <div className='insideCarouselCaption'>
                                     <div className='d-flex' style={{ paddingLeft: "35px" }}>
                                         <img className='homeLogo' width={"90px"} src={logo} alt="Logo" />
@@ -74,8 +74,8 @@ function Home() {
                 <Carousel.Item interval={1000}>
                     <div className="bg3" style={{ height: "100vh" }} text="Third slide" />
                     <Carousel.Caption>
-                        <Grid container spacing={2} style={{ height: "100%" }}>
-                            <Grid xs={12} md={7}>
+                        <Grid container spacing={0} style={{ height: "100%" }}>
+                            <Grid xs={12} md={10} lg={7}>
                                 <div className='insideCarouselCaption'>
                                     <div className='d-flex' style={{ paddingLeft: "35px" }}>
                                         <img className='homeLogo' width={"90px"} src={logo} alt="Logo" />
@@ -95,8 +95,8 @@ function Home() {
                 <Carousel.Item interval={2000}>
                     <div className="bg4" style={{ height: "100vh" }} text="Third slide" />
                     <Carousel.Caption>
-                        <Grid container spacing={2} style={{ height: "100%" }}>
-                            <Grid xs={12} md={7}>
+                        <Grid container spacing={0} style={{ height: "100%" }}>
+                            <Grid xs={12} md={10} lg={7}>
                                 <div className='insideCarouselCaption'>
                                     <div className='d-flex' style={{ paddingLeft: "35px" }}>
                                         <img className='homeLogo' width={"90px"} src={logo} alt="Logo" />

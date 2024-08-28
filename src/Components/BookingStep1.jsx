@@ -61,9 +61,9 @@ function BookingStep1({ steps, setDisableStep1Next, productImage, setProductImag
                     <CircularProgress className='me-2' sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} /> <h5 className='text-white'>Logging in</h5>
                 </div>
             :
-                <Grid className='bookingStepsGrid flex items-center' container sx={{ display: steps === 0 ? "" : "none" }}>
+                <Grid className='bookingStepsGrid flex items-center' container  rowSpacing={3} sx={{ display: steps === 0 ? "" : "none" }}>
                     {/* leftside */}
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <div>
                             <label className='flex justify-center'>
                                 <input type="file" style={{ display: "none" }} onChange={e => setProductImage(e.target.files[0])} />
@@ -72,7 +72,7 @@ function BookingStep1({ steps, setDisableStep1Next, productImage, setProductImag
                         </div>
                     </Grid>
                     {/* rightside - categories*/}
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <div>
                             {/* division of right side into 3 row */}
                             <Grid container spacing={2}>
@@ -82,7 +82,7 @@ function BookingStep1({ steps, setDisableStep1Next, productImage, setProductImag
                                         <Grid container spacing={3}>
                                             {allCategory?.length > 0 ?
                                                 allCategory.map(category => (
-                                                    <Grid key={category?._id} item xs={4} className='flex justify-evenly'>
+                                                    <Grid key={category?._id} item xs={6} sm={4} className='flex justify-evenly'>
                                                         <div className='categoryContainer'
                                                             onClick={() => handleIsCategoryClicked(category?._id)}>
                                                             {selectedCategory?.includes(category?._id) &&

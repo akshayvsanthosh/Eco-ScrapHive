@@ -194,7 +194,7 @@
 
 .bookingSteps {
     width: 100%;
-    height: 85vh;
+    min-height: 85vh;
     display: flex;
     justify-content: center;
 }
@@ -410,7 +410,7 @@
     padding: 30px 35px 0px 35px;
 }
 
-.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.MuiSelect-select{
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.MuiSelect-select {
     display: flex;
     align-items: center;
 }
@@ -419,5 +419,61 @@
 @keyframes spin {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+
+/* media */
+@media (max-width:900px) {
+    .dashboardContainer {
+        padding: 47px 10px 80px 10px;
+    }
+    .dashboardImage{
+        max-width: 82%;
+        height: auto;
+    }
+}
+
+@media (max-width:670px) {
+    .homeLogo {
+        display: none;
+    }
+}
+
+@media (max-width:566px) {
+    .homeHeading {
+        padding-top: 43px;
+        font-weight: 500;
+        font-size: 35px;
+    }
+
+    .homePara {
+        padding: 25px 5px 0px 16px;
+        font-size: 17px;
+    }    
+
+    .bttnHome {
+        width: 32%;
+    }    
+}
+
+@media (max-width:420px) {
+    .dashboardImage{
+        max-width: 82%;
+        height: auto;
+    }
+}
+
+@media (max-width:400px) {
+    .contactHeading {
+        font-size: 50px;
+    }
+}
+
+@media (max-width:346px) {
+    .dashboardImage{
+        max-width: 100%;
+        height: auto;
     }
 }

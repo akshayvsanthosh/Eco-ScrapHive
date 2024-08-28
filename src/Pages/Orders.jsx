@@ -96,20 +96,20 @@ function Orders() {
                                     {/* division of container to 3 */}
                                     <Grid container spacing={0} sx={{ minHeight: "109px" }}>
                                         {/* 1st col */}
-                                        <Grid item xs={6}>
+                                        <Grid item xs={12} sm={6}>
                                             <div className='h-100'>
                                                 {/* division of 1st col into 2 col */}
                                                 <Grid container spacing={0} className='h-100'>
                                                     {/* 1st col in 1st */}
-                                                    <Grid item xs={3}>
+                                                    <Grid item xs={12} sm={3}>
                                                         <div className='h-100'>
                                                             <img style={{ borderRadius: "7px" }} src={`${SERVER_URL}/uploads/${order.image}`} alt="Image" />
                                                         </div>
                                                     </Grid>
                                                     {/* 2nd col in 1st */}
-                                                    <Grid item xs={8}>
-                                                        <div className='h-100 ps-5'>
-                                                            <p className='orderDetailsHeading'>{order?.itemNames.slice(0, 18)}..</p>
+                                                    <Grid item xs={12} sm={8}>
+                                                        <div className='h-100 ps-sm-5'>
+                                                            <p className='orderDetailsHeading'>{order?.itemNames.slice(0, 14)}..</p>
                                                             <p>{order?.address.date.split('T')[0]}</p>
                                                         </div>
                                                     </Grid>
@@ -117,20 +117,20 @@ function Orders() {
                                             </div>
                                         </Grid>
                                         {/* 2nd col */}
-                                        <Grid item xs={2} className='flex justify-end'>
+                                        <Grid item xs={12} sm={2} className='flex justify-sm-end'>
                                             <div className='h-100'>
                                                 <p className='orderDetailsHeading'>₹ {order?.price}</p>
                                             </div>
                                         </Grid>
                                         {/* 3rd col */}
-                                        <Grid item xs={3} className='flex justify-end'>
+                                        <Grid item xs={8} sm={3} className='flex justify-sm-end'>
                                             <div className='h-100 flex justify-center pt-1'>
                                                 <span className={`${order?.orderStatus == 10 ? "bg-warning" : order?.orderStatus == 20 ? "bg-yellow-400" : "bg-success"}  orderStatusIcon`}></span>
                                                 <p className='orderDetailsHeading ps-2' style={{ marginTop: "-7px" }}>{order?.orderStatus == 10 ? 'Processing' : order?.orderStatus == 20 ? 'Out for pickup' : 'Completed'}</p>
                                             </div>
                                         </Grid>
                                         {/* 4th col */}
-                                        <Grid item xs={1}>
+                                        <Grid item xs={4} sm={1}>
                                             <div className='h-100'>
                                                 <div className='flex justify-end'>
                                                     <IconButton

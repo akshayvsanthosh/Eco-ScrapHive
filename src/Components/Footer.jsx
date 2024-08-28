@@ -20,7 +20,7 @@ function Footer() {
           <div className="links d-flex flex-column ">
             <h5 className='text-white '>Links</h5>
             <Link to={'/'} style={{ textDecoration: 'none', color: 'white' }}>Home</Link>
-            <Link to={'/restaurants'} style={{ textDecoration: 'none', color: 'white' }}>Restaurants</Link>
+            <Link to={'/user/orders'} style={{ textDecoration: 'none', color: 'white' }}>Orders</Link>
           </div>
         </Grid>
         <Grid xs={12} sm={4} lg={2}>

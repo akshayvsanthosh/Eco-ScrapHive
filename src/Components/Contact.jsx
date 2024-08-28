@@ -6,15 +6,15 @@ function Contact() {
     return (
         <div className='d-flex flex-column align-items-center contactContainer' style={{ minHeight: "100vh", width: "100%", backdropFilter: "blur(5px)" }}>
             <Grid container spacing={2} sx={{ minHeight: "100vh",marginTop:"0px" }}>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     <div className='contactTextDiv'>
                         <h1 className='contactHeading'>Eco-ScrapHive</h1>
                         <h2 className='contactSubHeading'>Shaping Tomorrow's <br />Future<span style={{ color: "yellow" }}>  Today!</span></h2>
                         <p style={{ color: "#fff", marginTop: "17px" }}>Want to make a difference? Reach out to us!.</p>
                     </div>
                 </Grid>
-                <Grid item xs={6}>
-                    <div className='h-100 pe-5 d-flex flex-column justify-content-center align-items-center'>
+                <Grid item xs={12} md={6}>
+                    <div className='h-100 pe-0 pe-lg-5 d-flex flex-column justify-content-center align-items-center'>
                         <Grid container spacing={2} className='contactBox'>
                             <Grid item xs={6}>
                                 <div><TextField className='w-100' id="outlined-basic" label="Name*" variant="outlined" /></div>
