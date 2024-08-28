@@ -144,7 +144,7 @@ function Dashboard() {
         console.log(preview,existingImg);
         
         // console.log(userName, phone, email, password, pincode, state, buildingName, city, areaName, landMark, userImage);
-        if (phone && pincode && state && buildingName && city && areaName && landMark) {
+        if (phone && pincode && state && buildingName && city && areaName && landMark && password) {
             const reqbody = new FormData()
             reqbody.append("userName", userName)
             reqbody.append("phone", phone)
