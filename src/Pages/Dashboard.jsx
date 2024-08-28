@@ -37,7 +37,7 @@ function Dashboard() {
     useEffect(() => {
         if (existingUser) {
             setUserDetails({
-                ...userDetails, userName: existingUser.userName, phone: existingUser.phone, email: existingUser.email, password: existingUser.password, pincode: existingUser.pincode, state: existingUser.state, buildingName: existingUser.buildingName, city: existingUser.city, areaName: existingUser.areaName, landMark: existingUser.landMark
+                ...userDetails, userName: existingUser.userName, phone: existingUser.phone, email: existingUser.email, password: "", pincode: existingUser.pincode, state: existingUser.state, buildingName: existingUser.buildingName, city: existingUser.city, areaName: existingUser.areaName, landMark: existingUser.landMark
             })            
             if (existingUser.userImage!="undefined" && existingUser.userImage!="" && existingUser.userImage!=null && existingUser.userImage!=undefined) {                
                 setExistingImg(existingUser.userImage)
@@ -105,7 +105,7 @@ function Dashboard() {
                 setUserDetails({ ...userDetails, email: value })
                 break;
 
-            case 'password': !!value.match(/^(([a-zA-Z0-9])+([@#$&*_])*){4,}$/) ? setInvalidUserDetails({ ...invalidUserDetails, password: false }) : setInvalidUserDetails({ ...invalidUserDetails, password: true })
+            case 'password': !!value.match(/^(([a-zA-Z0-9])+([@#$&*_])*){4,6}$/) ? setInvalidUserDetails({ ...invalidUserDetails, password: false }) : setInvalidUserDetails({ ...invalidUserDetails, password: true })
                 setUserDetails({ ...userDetails, password: value })
                 break;
 
