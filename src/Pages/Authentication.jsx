@@ -84,6 +84,7 @@ function Authentication({ insideRegister }) {
                     })
                 } else {
                     if (result.response.status == 406) {
+                        console.log(result);
                         toast.error(result.response.data)
                         setUserDetails({
                             userName: "", phone: "", email: "", password: "", pincode: "", state: "", buildingName: "", city: "", areaName: "", landMark: ""

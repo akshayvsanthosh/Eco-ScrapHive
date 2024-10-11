@@ -58,7 +58,7 @@ function BookingStep1({ steps, setDisableStep1Next, productImage, setProductImag
                             </linearGradient>
                         </defs>
                     </svg>
-                    <CircularProgress className='me-2' sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} /> <h5 className='text-white'>Logging in</h5>
+                    <CircularProgress className='me-2' sx={{ 'svg circle': { stroke: 'url(#my_gradient)' } }} /> <h5 className='text-white'>Loading</h5>
                 </div>
             :
                 <Grid className='bookingStepsGrid flex items-center' container  rowSpacing={3} sx={{ display: steps === 0 ? "" : "none" }}>
